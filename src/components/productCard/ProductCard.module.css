@@ -1,0 +1,25 @@
+.Card {
+  background-color: var(--lightBlue);
+  border: 2px solid var(--blue);
+  display: flex;
+
+  .Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      color: var(--purple);
+    }
+
+    .Price {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .Discount {
+      color: var(--purple);
+      font-weight: bold;
+    }
+  }
+}

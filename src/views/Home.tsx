@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Loader from "@components/loader/Loader";
 import { ProductList } from "@containers/ProductList";
 import { ProductListResponse } from "@utils/types";
 
@@ -12,14 +11,10 @@ export function Home() {
       .then(setProductList);
   }, []);
 
-  const dataLoaded = Boolean(productList);
-
   console.log(productList?.products);
   return (
     <div>
-      {dataLoaded
-        ? <ProductList /> :
-        <Loader />}
+      <ProductList products={productList?.products} />
     </div>
   );
 };

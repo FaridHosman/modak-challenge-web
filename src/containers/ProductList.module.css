@@ -1,0 +1,16 @@
+.productCards {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.SortAndFilter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

@@ -69,3 +69,11 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* Color constants */
+:root {
+  --purple: #8a2be2;
+  --lightBlue: #81acf7;
+  --blue: #1e90ff;
+  --white: #ffffff;
+}

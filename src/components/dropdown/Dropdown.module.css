@@ -1,0 +1,18 @@
+.Dropdown {
+  display: inline;
+
+  label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  select {
+    width: 200px;
+    font-size: 1em;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
