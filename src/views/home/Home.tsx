@@ -17,8 +17,6 @@ export function Home() {
     staleTime: 30000,
   })
 
-  console.log(error)
-
   return (
     <div className={styles.Home}>
       <header>

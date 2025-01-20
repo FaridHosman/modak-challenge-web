@@ -1,13 +1,18 @@
+import { ErrorMessage } from "@components/errorMessage/ErrorMessage";
 import Loader from "@components/loader/Loader";
 import { ProductType } from "@utils/types";
 
 interface ProductDetailProps {
   product?: ProductType
   isLoading?: boolean
+  error: Error | null
 }
 
-export function ProductDetail({ product, isLoading }: ProductDetailProps) {
-  console.log(product)
+export function ProductDetail({ product, isLoading, error }: ProductDetailProps) {
+  if (error) {
+    return <ErrorMessage error={error} />
+  }
+
   return (
     <div>
       {isLoading ?

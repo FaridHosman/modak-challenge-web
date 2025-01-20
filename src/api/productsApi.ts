@@ -4,10 +4,8 @@ export async function getProducts(filterBy?: string, sortBy?: string) {
   let sortParams = ""
   let filterParams = ""
   if (sortBy) {
-    console.log(sortBy)
     const sortOption = sortBy.split('-')[0]
     const sortOrder = sortBy.split('-')[1]
-    console.log(sortOption, sortOrder)
     sortParams = `?sortBy=${sortOption}&order=${sortOrder}`
   }
   if (filterBy) {
