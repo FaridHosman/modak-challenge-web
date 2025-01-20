@@ -1,0 +1,9 @@
+.Error {
+  height: 200px;
+  background-color: var(--lightRed);
+  border: 2px solid var(--red);
+  text-align: center;
+  font-size: medium;
+  line-height: 200px;
+  font-size: 30px;
+}

@@ -1,11 +1,11 @@
-export type ProductListResponse = {
-  products: Product[];
+export type ProductListResponseType = {
+  products: ProductType[];
   total: number;
   skip: number;
   limit: number;
 };
 
-export type Product = {
+export type ProductType = {
   id: number;
   title: string;
   description: string;

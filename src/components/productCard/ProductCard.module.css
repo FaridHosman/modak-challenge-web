@@ -2,6 +2,11 @@
   background-color: var(--lightBlue);
   border: 2px solid var(--blue);
   display: flex;
+  padding: 10px;
+
+  img {
+    margin-right: 10px;
+  }
 
   .Content {
     display: flex;
@@ -10,6 +15,11 @@
 
     h1 {
       color: var(--purple);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--orange);
+      }
     }
 
     .Price {

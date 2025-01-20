@@ -1,11 +1,16 @@
-.productCards {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.Home {
+  position: relative;
 
   header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+
+    h1 {
+      font-size: 5rem;
+      margin: 20px;
+    }
   }
 }
 
