@@ -4,7 +4,8 @@ export const useProductQuery = <T>(apiFunction: (...args: Array<unknown>) => Pro
   const { isLoading, data, error } = useQuery({
     queryKey: [queryKey, ...rest],
     queryFn: () => apiFunction(...rest),
-    staleTime: 30000,
+    staleTime: 30000, // can be set to infinity to prevent data from going stale
+    gcTime: 300000, // can be set to infinity to prevent data from being garbage collected
     refetchOnWindowFocus: false
   });
 
