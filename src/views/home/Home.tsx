@@ -10,13 +10,22 @@ import Loader from "@components/loader/Loader";
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
   const [sortBy, setSortBy] = useState<SortOptionsValueType>()
-  const { isLoading, data, error } = useProductQuery<ProductListResponseType>(() => getProducts(filterBy, sortBy), 'products', filterBy, sortBy);
+  const { data, isLoading, error } = useProductQuery<ProductListResponseType>(() => getProducts(filterBy, sortBy), 'products', filterBy, sortBy);
 
   return (
     <div>
-      <Header setFilterBy={setFilterBy} setSortBy={setSortBy} />
-      <ErrorAndLoadingHandler isLoading={isLoading} error={error} loader={<Loader />}>
-        <ProductList products={data?.products} />
+      <Header
+        setFilterBy={setFilterBy}
+        setSortBy={setSortBy}
+      />
+      <ErrorAndLoadingHandler
+        isLoading={isLoading}
+        error={error}
+        loader={<Loader />}
+      >
+        <ProductList
+          products={data?.products}
+        />
       </ErrorAndLoadingHandler>
     </div>
   );

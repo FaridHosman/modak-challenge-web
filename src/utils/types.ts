@@ -1,3 +1,14 @@
+export type DropdownOptionType = {
+  value: string;
+  label: string;
+}
+
+export type CategoryType = {
+  slug: string;
+  name: string;
+  url: string;
+}
+
 export type SortOptionsType = {
   value: SortOptionsValueType
   label: string;

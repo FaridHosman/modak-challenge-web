@@ -1,4 +1,5 @@
-import { SortOptionsValueType } from "@utils/types";
+import { categoriesToDropdownOption } from "@utils/functions";
+import { CategoryType, SortOptionsValueType } from "@utils/types";
 
 const API_URL = "https://dummyjson.com/products";
 
@@ -14,12 +15,18 @@ export async function getProducts<ProductListResponseType>(filterBy?: string, so
     filterParams = `/category/${filterBy}`
   }
   const response = await fetch(`${API_URL}${filterParams}${sortParams}`)
-  const data = await response.json()
-  return data as ProductListResponseType
+  const data: ProductListResponseType = await response.json()
+  return data
 }
 
 export async function getProduct<ProductType>(productId?: string) {
   const response = await fetch(`${API_URL}/${productId}`)
-  const data = await response.json()
-  return data as ProductType
+  const data: ProductType = await response.json()
+  return data
+}
+
+export async function getCategoriesAsDropdownOptions() {
+  const response = await fetch(`${API_URL}/categories`)
+  const data: CategoryType[] = await response.json()
+  return categoriesToDropdownOption(data)
 }
