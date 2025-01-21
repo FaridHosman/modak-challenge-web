@@ -72,6 +72,19 @@ h6 {
   isolation: isolate;
 }
 
+.thumbs-wrapper,
+.axis-vertical,
+.thumbs {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.thumb {
+  visibility: hidden;
+}
+
 /* Color constants */
 :root {
   --purple: #8a2be2;
