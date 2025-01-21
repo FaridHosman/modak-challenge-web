@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 export function Product() {
   const params = useParams();
-  const { isLoading, data, error } = useProductQuery<ProductType>(getProduct, 'product-detail', params.id);
+  const { isLoading, data, error } = useProductQuery<ProductType>(() => getProduct(params.id), 'product-detail');
 
   return (
     <ErrorAndLoadingHandler isLoading={isLoading} error={error}>

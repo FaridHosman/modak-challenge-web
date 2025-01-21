@@ -3,7 +3,7 @@ export type SortOptionsType = {
   label: string;
 };
 
-export type SortOptionsValueType = "rating-desc" | "rating-asc" | "price-desc" | "price-asc";
+export type SortOptionsValueType = "rating-desc" | "rating-asc" | "price-desc" | "price-asc"
 
 export type ProductListResponseType = {
   products: ProductType[];

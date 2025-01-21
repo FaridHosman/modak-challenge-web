@@ -2,7 +2,7 @@ import { SortOptionsValueType } from "@utils/types";
 
 const API_URL = "https://dummyjson.com/products";
 
-export async function getProducts(filterBy?: string, sortBy?: SortOptionsValueType) {
+export async function getProducts<ProductListResponseType>(filterBy?: string, sortBy?: SortOptionsValueType) {
   let sortParams = ""
   let filterParams = ""
   if (sortBy) {
@@ -15,11 +15,11 @@ export async function getProducts(filterBy?: string, sortBy?: SortOptionsValueTy
   }
   const response = await fetch(`${API_URL}${filterParams}${sortParams}`)
   const data = await response.json()
-  return data
+  return data as ProductListResponseType
 }
 
-export async function getProduct(productId?: string) {
+export async function getProduct<ProductType>(productId?: string) {
   const response = await fetch(`${API_URL}/${productId}`)
   const data = await response.json()
-  return data
+  return data as ProductType
 }
