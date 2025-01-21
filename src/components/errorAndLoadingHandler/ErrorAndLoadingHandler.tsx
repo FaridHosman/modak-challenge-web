@@ -1,17 +1,17 @@
-import { ErrorMessage } from "@components/errorMessage/ErrorMessage"
-import Loader from "@components/loader/Loader"
+import styles from './ErrorAndLoadingHandler.module.css'
 
 interface ErrorAndLoadingHandlerProps {
   children: React.ReactNode,
   isLoading?: boolean,
   error: Error | null
+  loader?: React.ReactNode
 }
 
-export function ErrorAndLoadingHandler({ children, isLoading, error }: ErrorAndLoadingHandlerProps) {
+export function ErrorAndLoadingHandler({ children, isLoading, error, loader }: ErrorAndLoadingHandlerProps) {
   if (error) {
-    return <ErrorMessage error={error} />
+    return <div className={styles.Error}>{error.message}</div>
   } else if (isLoading) {
-    return <div data-testid="loader"><Loader /></div>
+    return <div data-testid="loader">{loader}</div>
   } else {
     return <>{children}</>
   }

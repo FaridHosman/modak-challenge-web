@@ -5,6 +5,7 @@ import { ErrorAndLoadingHandler } from "@components/errorAndLoadingHandler/Error
 import { useProductQuery } from "@utils/hooks";
 import { getProducts } from "@api/productsApi";
 import { Header } from "@containers/header/Header";
+import Loader from "@components/loader/Loader";
 
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
@@ -14,7 +15,7 @@ export function Home() {
   return (
     <div>
       <Header setFilterBy={setFilterBy} setSortBy={setSortBy} />
-      <ErrorAndLoadingHandler isLoading={isLoading} error={error}>
+      <ErrorAndLoadingHandler isLoading={isLoading} error={error} loader={<Loader />}>
         <ProductList products={data?.products} />
       </ErrorAndLoadingHandler>
     </div>
