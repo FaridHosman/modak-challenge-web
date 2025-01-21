@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ErrorAndLoadingHandler } from "@components/errorAndLoadingHandler/ErrorAndLoadingHandler";
 import { useProductQuery } from "@utils/hooks";
 import { getProducts } from "@api/productsApi";
-import { Header } from "@components/header/Header";
+import { Header } from "@containers/header/Header";
 
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
