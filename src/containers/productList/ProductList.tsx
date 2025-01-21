@@ -10,7 +10,11 @@ export function ProductList({ products }: ProductListProps) {
   return (
     <main className={styles.productCards}>
       {products?.map((product) => {
-        return <ProductCard product={product} key={product.id} />
+        return (
+          <div data-testid="product-card" key={product.id}>
+            <ProductCard product={product} />
+          </div>
+        )
       })}
     </main>
   )

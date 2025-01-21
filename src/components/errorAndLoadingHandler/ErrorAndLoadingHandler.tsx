@@ -11,7 +11,7 @@ export function ErrorAndLoadingHandler({ children, isLoading, error }: ErrorAndL
   if (error) {
     return <ErrorMessage error={error} />
   } else if (isLoading) {
-    return <Loader />
+    return <div data-testid="loader"><Loader /></div>
   } else {
     return <>{children}</>
   }
