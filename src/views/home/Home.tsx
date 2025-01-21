@@ -1,22 +1,17 @@
 import { ProductList } from "@containers/productList/ProductList";
 import { ProductListResponseType, SortOptionsValueType } from "@utils/types";
-import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "@api/productsApi";
 import { Dropdown } from "@components/dropdown/Dropdown";
 import { productCategories, sortOptions } from "@utils/constants";
 import styles from './Home.module.css';
 import { useState } from "react";
+import { ErrorAndLoadingHandler } from "@components/errorAndLoadingHandler/ErrorAndLoadingHandler";
+import { useProductQuery } from "@utils/hooks";
+import { getProducts } from "@api/productsApi";
 
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
   const [sortBy, setSortBy] = useState<SortOptionsValueType>()
-
-  const { isLoading, data, error } = useQuery<ProductListResponseType>({
-    queryKey: ['products', filterBy, sortBy],
-    queryFn: () => getProducts(filterBy, sortBy),
-    staleTime: 30000,
-    refetchOnWindowFocus: false
-  })
+  const { isLoading, data, error } = useProductQuery<ProductListResponseType>(getProducts, 'products', filterBy, sortBy)
 
   return (
     <div className={styles.Home}>
@@ -29,7 +24,9 @@ export function Home() {
           <Dropdown label="Sort by" defaultString="default order" options={sortOptions} onChange={setSortBy} />
         </div>
       </header>
-      <ProductList products={data?.products} isLoading={isLoading} error={error} />
+      <ErrorAndLoadingHandler isLoading={isLoading} error={error}>
+        <ProductList products={data?.products} />
+      </ErrorAndLoadingHandler>
     </div>
   );
 };
