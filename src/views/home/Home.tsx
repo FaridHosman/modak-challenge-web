@@ -11,7 +11,7 @@ import { getProducts } from "@api/productsApi";
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
   const [sortBy, setSortBy] = useState<SortOptionsValueType>()
-  const { isLoading, data, error } = useProductQuery<ProductListResponseType>(() => getProducts(filterBy, sortBy), 'products')
+  const { isLoading, data, error } = useProductQuery<ProductListResponseType>(() => getProducts(filterBy, sortBy), 'products', filterBy, sortBy);
 
   return (
     <div className={styles.Home}>
