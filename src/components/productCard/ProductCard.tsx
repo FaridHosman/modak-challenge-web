@@ -11,7 +11,12 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className={styles.Card}>
-      <img src={product.thumbnail} width={200} height={200} alt={product.title} />
+      <img
+        src={product.thumbnail}
+        width={200} height={200}
+        alt={product.title}
+        onClick={() => navigate(`/product/${product.id}`)}
+      />
       <div className={styles.Content}>
         <h1 onClick={() => navigate(`/product/${product.id}`)}>
           {product.title}
