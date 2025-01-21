@@ -1,4 +1,7 @@
 import { ProductType } from "@utils/types";
+import styles from './ProductDetail.module.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 interface ProductDetailProps {
   product?: ProductType
@@ -6,14 +9,24 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product }: ProductDetailProps) {
   return (
-    <div>
-      <h1>Product {product?.id}</h1>
-      <p>{product?.description}</p>
-      <p>{product?.brand}</p>
-      <p>{product?.stock}</p>
-      {product?.images.map((image, index) => (
-        <img key={index} src={image} alt={`Product ${product?.id}`} />
-      ))}
+    <div className={styles.ProductDetail}>
+      <div className={styles.Carousel}>
+        <Carousel useKeyboardArrows showArrows={false} infiniteLoop centerMode autoPlay>
+          {product?.images.map((image, index) => (
+            <img key={index} src={image} alt={`Product ${product?.id}`} />
+          ))}
+        </Carousel>
+      </div>
+      <div className={styles.ProductInfo}>
+        <h1>{product?.title}</h1>
+        <p className={styles.Brand}>{product?.brand}</p>
+        <p className={styles.Description}>{product?.description}</p>
+        <p className={styles.Stock}>{product?.stock} left in stock</p>
+
+        <button>
+          Add to cart
+        </button>
+      </div>
     </div>
   );
 }
