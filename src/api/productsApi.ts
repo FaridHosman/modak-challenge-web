@@ -1,6 +1,6 @@
 import { SortOptionsValueType } from "@utils/types";
 
-const API_URL = "https://dummyjson.com/productss";
+const API_URL = "https://dummyjson.com/products";
 
 export async function getProducts<ProductListResponseType>(filterBy?: string, sortBy?: SortOptionsValueType) {
   let sortParams = ""
