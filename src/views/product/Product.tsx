@@ -1,6 +1,6 @@
 import { getProduct } from "@api/productsApi";
 import { ErrorAndLoadingHandler } from "@components/errorAndLoadingHandler/ErrorAndLoadingHandler";
-import Loader from "@components/loader/Loader";
+import { Loader } from "@components/loader/Loader";
 import { ProductDetail } from "@containers/productDetail/ProductDetail";
 import { useProductQuery } from "@utils/hooks";
 import { ProductType } from "@utils/types";

@@ -5,7 +5,7 @@ import { ErrorAndLoadingHandler } from "@components/errorAndLoadingHandler/Error
 import { useProductQuery } from "@utils/hooks";
 import { getProducts } from "@api/productsApi";
 import { Header } from "@containers/header/Header";
-import Loader from "@components/loader/Loader";
+import { Loader } from "@components/loader/Loader";
 
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
