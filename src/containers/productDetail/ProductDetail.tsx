@@ -2,6 +2,7 @@ import { ProductType } from "@utils/types";
 import styles from './ProductDetail.module.css';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 interface ProductDetailProps {
   product?: ProductType
@@ -26,6 +27,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
         <button>
           Add to cart
         </button>
+        <AddToCalendarButton
+          name={`Remainder to buy ${product?.title}`}
+          startDate={new Date().toISOString()}
+          options={['Apple', 'Google', 'Yahoo', 'iCal']}
+        />
       </div>
     </div>
   );
