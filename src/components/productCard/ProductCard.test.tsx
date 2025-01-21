@@ -37,7 +37,9 @@ describe('Product Card Component', () => {
     );
 
     const titleElement = container.querySelector('h1');
-    titleElement && fireEvent.click(titleElement);
+    if (titleElement) {
+      fireEvent.click(titleElement);
+    }
 
     expect(window.location.pathname).toBe(`/product/${product.id}`);
   });
