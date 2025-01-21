@@ -1,8 +1,7 @@
 import { ProductCard } from "@components/productCard/ProductCard";
 import { ProductType } from "@utils/types";
 import styles from './ProductList.module.css';
-import Loader from "@components/loader/Loader";
-import { ErrorMessage } from "@components/errorMessage/ErrorMessage";
+import { ErrorAndLoadingHandler } from "@components/errorAndLoadingHandler/ErrorAndLoadingHandler";
 
 interface ProductListProps {
   products?: ProductType[]
@@ -11,20 +10,13 @@ interface ProductListProps {
 }
 
 export function ProductList({ products, isLoading, error }: ProductListProps) {
-
-  if (error) {
-    return <ErrorMessage error={error} />
-  }
-
   return (
-    <>
-      {isLoading ?
-        <Loader /> :
-        <main className={styles.productCards}>
-          {products?.map((product) => {
-            return <ProductCard product={product} key={product.id} />
-          })}
-        </main>}
-    </>
+    <ErrorAndLoadingHandler isLoading={isLoading} error={error}>
+      <main className={styles.productCards}>
+        {products?.map((product) => {
+          return <ProductCard product={product} key={product.id} />
+        })}
+      </main>
+    </ErrorAndLoadingHandler>
   )
 }

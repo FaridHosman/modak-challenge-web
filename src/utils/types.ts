@@ -1,3 +1,10 @@
+export type SortOptionsType = {
+  value: SortOptionsValueType
+  label: string;
+};
+
+export type SortOptionsValueType = "rating-desc" | "rating-asc" | "price-desc" | "price-asc";
+
 export type ProductListResponseType = {
   products: ProductType[];
   total: number;

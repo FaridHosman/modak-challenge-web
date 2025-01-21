@@ -1,15 +1,16 @@
+import { SortOptionsValueType } from '@utils/types';
 import styles from './Dropdown.module.css';
 
 interface DropdownProps {
   label: string;
   defaultString: string;
   options: { value: string, label: string }[];
-  onChange: (value: string) => void;
+  onChange: (value: SortOptionsValueType) => void;
 }
 
 export function Dropdown({ label, defaultString, options, onChange }: DropdownProps) {
   function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    onChange(e.target.value)
+    onChange(e.target.value as SortOptionsValueType)
   }
 
   return (

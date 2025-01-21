@@ -1,3 +1,5 @@
+import { SortOptionsType } from "./types"
+
 export const productCategories = [ // if these values are expected to change, they should be fetched from the API 'https://dummyjson.com/products/category-list'
   { value: "Beauty", label: "Beauty" },
   { value: "Fragrances", label: "Fragrances" },
@@ -25,7 +27,7 @@ export const productCategories = [ // if these values are expected to change, th
   { value: "Womens Watches", label: "Women's Watches" },
 ]
 
-export const sortOptions = [
+export const sortOptions: SortOptionsType[] = [
   { value: "rating-desc", label: "Rating ↓" },
   { value: "rating-asc", label: "Rating ↑" },
   { value: "price-desc", label: "Price ↓" },

@@ -10,6 +10,7 @@ export function Product() {
     queryKey: ['product-detail', params.id],
     queryFn: () => getProduct(params.id),
     staleTime: 30000,
+    refetchOnWindowFocus: false
   });
 
   return (

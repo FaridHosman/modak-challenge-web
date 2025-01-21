@@ -1,5 +1,5 @@
 import { ProductList } from "@containers/productList/ProductList";
-import { ProductListResponseType } from "@utils/types";
+import { ProductListResponseType, SortOptionsValueType } from "@utils/types";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@api/productsApi";
 import { Dropdown } from "@components/dropdown/Dropdown";
@@ -9,12 +9,13 @@ import { useState } from "react";
 
 export function Home() {
   const [filterBy, setFilterBy] = useState<string>()
-  const [sortBy, setSortBy] = useState<string>()
+  const [sortBy, setSortBy] = useState<SortOptionsValueType>()
 
   const { isLoading, data, error } = useQuery<ProductListResponseType>({
     queryKey: ['products', filterBy, sortBy],
     queryFn: () => getProducts(filterBy, sortBy),
     staleTime: 30000,
+    refetchOnWindowFocus: false
   })
 
   return (
