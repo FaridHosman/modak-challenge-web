@@ -21,6 +21,8 @@ export function ProductDetail({ product }: ProductDetailProps) {
       <div className={styles.ProductInfo}>
         <h1>{product?.title}</h1>
         <p className={styles.Brand}>{product?.brand}</p>
+        <p className={styles.Price}>{`${product?.price}$`}</p>
+        <p className={styles.Discount}>{`${product?.discountPercentage} % Off!`}</p>
         <p className={styles.Description}>{product?.description}</p>
         <p className={styles.Stock}>{product?.stock} left in stock</p>
 
@@ -28,7 +30,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
           Add to cart
         </button>
         <AddToCalendarButton
-          name={`Remainder to buy ${product?.title}`}
+          name={`Reminder to buy ${product?.title}`}
           startDate={new Date().toISOString()}
           options={['Apple', 'Google', 'Yahoo', 'iCal']}
         />
