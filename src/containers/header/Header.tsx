@@ -2,8 +2,8 @@ import { Dropdown } from '@components/dropdown/Dropdown';
 import styles from './Header.module.css';
 import { sortOptions } from '@utils/constants';
 import { SortOptionsValueType } from '@utils/types';
-import { useProductQuery } from '@utils/hooks';
 import { getCategoriesAsDropdownOptions } from '@api/productsApi';
+import { useProductQuery } from '@hooks/useProductQuery';
 
 interface HeaderProps {
   setFilterBy: (value: string) => void
@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 export function Header({ setFilterBy, setSortBy }: HeaderProps) {
-  const { data, isLoading, error } = useProductQuery(() => getCategoriesAsDropdownOptions(), 'categories');
+  const { data, isLoading, error, isSuccess } = useProductQuery(() => getCategoriesAsDropdownOptions(), 'categories');
   return (
     <header>
       <h1>
@@ -21,7 +21,7 @@ export function Header({ setFilterBy, setSortBy }: HeaderProps) {
         <Dropdown
           label="Filter by category"
           defaultString={error ? "Error fetching categories" : isLoading ? "Loading categories" : "All categories"}
-          options={isLoading || error ? [] : data}
+          options={isSuccess ? data : []}
           onChange={setFilterBy}
         />
         <Dropdown

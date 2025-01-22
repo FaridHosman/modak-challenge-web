@@ -10,6 +10,7 @@ export default defineConfig({
       '@containers': path.resolve(__dirname, './src/containers'),
       '@utils': path.resolve(__dirname, './src/utils'),
       '@api': path.resolve(__dirname, './src/api'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
     },
   },
   plugins: [react()],
